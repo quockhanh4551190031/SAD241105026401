@@ -33,10 +33,10 @@
 - Unordered list with a number 1986
 - 2018\. It has the best new year
 ----------------------------------
-- First item
-- Second item
+* First item
+* Second item
     Paragraph
-- Third item
+* Third item
 
 # Code
 
