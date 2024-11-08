@@ -62,6 +62,18 @@ My [Youtube](https://www.youtube.com/).
 
 ***[Bold italic link](#)***
 
+<a href="#">New Tab Link</a>
+
+### Reference Links
+
+[Youtube][1]
+[Google][2]
+
+[1]: https://www.youtube.com/ "My channel"
+[2]: https://www.google.com/ "My search engine"
+
+This here is [Youtube][1] and [Google][2].
+
 ----------------------------------------
 
 # PlantText URL
