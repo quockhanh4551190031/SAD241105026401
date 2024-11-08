@@ -48,11 +48,11 @@ Command promt: type `hello world`
 
 # Links
 
-My favourite search engine is [Google](google.com).
+My favourite search engine is [Google](https://www.google.com/).
 
-My [MarkDown](www.markdownguide.org).
+My [MarkDown](https://www.markdownguide.org/).
 
-My [Youtube](youtube.com)
+My [Youtube](https://www.youtube.com/).
 
 <tranquockhanh010904@gmail.com>
 
