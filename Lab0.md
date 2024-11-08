@@ -73,10 +73,10 @@ This here is [Youtube][1] and [Google][2].
 
 ## Tables
 
-| Name | Class | Age |
-| ---- | ----- | --- |
-| Khánh | KTPM | 20  |
-| Nam  | CNTT  | 19  |
+|   Name   |   Class   |   Age   |
+|   ----   |   -----   |   ---   |
+|   Khánh  |   KTPM    |   20    |
+|   Nam    |   CNTT    |   19    |
 
 ----------------------------------------
 
