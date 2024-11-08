@@ -35,7 +35,9 @@
 ----------------------------------
 * First item
 * Second item
+  
     Paragraph
+  
 * Third item
 
 # Code
