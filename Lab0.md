@@ -66,9 +66,6 @@ My [Youtube](https://www.youtube.com/).
 
 ### Reference Links
 
-[Youtube][1]
-[Google][2]
-
 [1]: https://www.youtube.com/ "My channel"
 [2]: https://www.google.com/ "My search engine"
 
