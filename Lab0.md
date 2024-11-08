@@ -46,6 +46,26 @@ Command promt: type `hello world`
 
 ``Escaping `back ticks`.``
 
+----------------------------------
+
+# Links
+
+My favourite search engine is [Google](google.com).
+
+My [MarkDown](www.markdownguide.org).
+
+My [Youtube](youtube.com)
+
+<tranquockhanh010904@gmail.com>
+
+[Bold link](#)*
+
+[Italic link](#)**
+
+[Bold italic link](#)***
+
+----------------------------------------
+
 # PlantText URL
 
 ![Simple plant text diagram - 1](https://www.planttext.com/api/plantuml/png/SoWkIImgAStDuU8gpixCKoZABqxbudBAJrBGjLDmpCbCJhLIy4ZDoSbNvE9oICrB0Qe40000)
