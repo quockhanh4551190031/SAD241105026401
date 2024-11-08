@@ -44,7 +44,7 @@
 
 Command promt: type `hello world`
 
-``Escaping `back ticks`.``
+Escaping \`back ticks`.
 
 # Links
 
