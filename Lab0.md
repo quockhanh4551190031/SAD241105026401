@@ -37,7 +37,7 @@
 
 Command promt: type `hello world`
 
-``No command promt: type `code`.``
+``Use `code` in your Markdown file.``
 
 # PlantText URL
 
