@@ -22,7 +22,7 @@
 >
 >***Bold Italic block quotes***
 
--1968\. is a year
+- 1968\. is a year
 
 # PlantText URL
 
