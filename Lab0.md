@@ -46,8 +46,6 @@ Command promt: type `hello world`
 
 ``Escaping `back ticks`.``
 
-----------------------------------
-
 # Links
 
 My favourite search engine is [Google](google.com).
@@ -58,11 +56,11 @@ My [Youtube](youtube.com)
 
 <tranquockhanh010904@gmail.com>
 
-[Bold link](#)*
+*[Bold link](#)*
 
-[Italic link](#)**
+**[Italic link](#)**
 
-[Bold italic link](#)***
+***[Bold italic link](#)***
 
 ----------------------------------------
 
