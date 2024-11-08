@@ -23,7 +23,7 @@
 >***Bold Italic block quotes***
 
 - Unordered list with a number 1986
-- 2018\ is have the best new year
+- 2018\. It has the best new year
 
 # PlantText URL
 
