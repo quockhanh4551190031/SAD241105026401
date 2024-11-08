@@ -25,7 +25,7 @@
 - Unordered list with a number 1986
 - 2018\. It has the best new year
 
-Command promt: type 'hello world'
+Command promt: type `hello world`
 
 # PlantText URL
 
