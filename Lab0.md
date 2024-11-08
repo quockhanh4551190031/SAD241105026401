@@ -37,7 +37,7 @@
 
 Command promt: type `hello world`
 
-``No command promt: type `code```
+``No command promt: type `code`.``
 
 # PlantText URL
 
