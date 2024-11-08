@@ -1,9 +1,8 @@
 # Heading 1
 
-@startuml
+**bold** 
+*italic*
+***bold italic***
 
-skin rose
-
-Bob -> Alice: Hello!
-
-@enduml
+>Block quotes with multiple paragraph
+>Block quotes with more multiple paragraph
