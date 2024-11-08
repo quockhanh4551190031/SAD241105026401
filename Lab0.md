@@ -40,13 +40,34 @@
   
 * Third item
 
-# Code
+## Code
 
 Command promt: type `hello world`
 
 Escaping \`back ticks`.
 
-# Links
+### Code blocks
+
+#### With indenting line
+
+    <html>
+      <head>
+        <h1>Heading</h1>
+        <p>Paragraph</p>
+      </head>
+    </html>
+
+#### Without indenting lines
+
+```
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "Age": 20
+}
+```
+
+## Links
 
 My favourite search engine is [Google](https://www.google.com/).
 
