@@ -3,23 +3,63 @@
 
 **1. Subsystem context diagram**
 
-- *BankSystem:*
+- ***BankSystem:***
 
-    Hệ thống này xử lý các giao dịch ngân hàng, như thanh toán lương, tương tác với các ngân hàng để chuyển khoản.
+    Hệ thống *BankSystem* chịu trách nhiệm xử lý các giao dịch ngân hàng, bao gồm nhận yêu cầu thanh toán từ *PayrollSystem* và giao tiếp với ngân hàng để thực hiện thanh toán hoặc nhận phản hồi.
 
-    ![BankSystem](https://www.planttext.com/api/plantuml/png/P92z3S8m44PxJt5Apm8fK4H36maME18hZd1ioRaKcO6I2ImA92GwghYWy2IUW1K8A7zIollkVK-d-xXtKXCQQYh9C2Dj84gnDLfAEBGryIe2h668cE4PeIeaXsY7whmWvd7K_99fnTXetMmNBCIm3-vPGkiV3MIXkpT00fK0qjugjY27tjGeIjIG1tV9n1zRYLCHkfi24TnrJS_IyQuOZiA_L04dRpMG2Ptj1nBUbYpXAkyVz0K00F__0m00 "BankSystem")
+    ![BankSystem](https://www.planttext.com/api/plantuml/png/P9313S8m34NlcSBgdGKue8e9aCe29XWKaJWbTWwThGT6OWNIgg4L7FtzzFpbz_XgHJ5f3jwWrPYWEU6GelVG3Q8K6a219JA9h2BVFK5pH7viY7MicYdvheofrjrXmy8UEk8hz3W4OeL4pqoYPaCi_4JcIt0Acf2bt72HP-xFU5w18fG-ij2FiPOfKaND0XpLtPp5sTgMIjC_FW000F__0m00 "BankSystem")
+
+  - Interface:
+
+      - **Đầu vào**:
+        
+          Từ *PayrollSystem*: Yêu cầu thanh toán (bao gồm thông tin nhân viên, số tiền thanh toán, tài khoản đích).
+
+      - **Đầu ra**:
+        
+          Đến *Bank*: Gửi giao dịch thanh toán
+
+          Đến *PayrollSystem*: Phản hồi trạng thái giao dịch (thành công, thất bại)
+
+  - Dữ liệu trao đổi:
+
+      Thông tin nhân viên, tài khoản ngân hàng, số tiền cần thanh toán
   
-- *PrintService:*
+- ***PrintService:***
 
-    Hệ thống in các phiếu lương hoặc báo cáo liên quan đến bảng lương.
+    Hệ thống *PrintService* xử lý yêu cầu in các tài liệu như phiếu lương, báo cáo. Hệ thống này giao tiếp với máy in để thực hiện in ấn và trả về trạng thái hoàn thành cho *PayrollSystem*.
 
-  ![PrintService](https://www.planttext.com/api/plantuml/png/P91D2i8m44RtESNWtWkuaEvqANJZDiJ11D8KfedG4tYDkX11w0LQn4LEaXDu1LFwOukRMNpplSSmd_RDai9oiYxJZ0kR4wmElAHSQqZBmcAs0bx04352ORavQumjKiQcI1SbiE_CWadLPKY_FH9Zet-zNJ2mWLreQmMbVpeGeNauK0QihnHe5TghOulwY2D5yXX9qFuL2JQc__vzxgje3CtTJiMvRZWiwlnDW96XgGt87f9nIfQWENMl-W800F__0m00 "PrintService")
+  ![PrintService](https://www.planttext.com/api/plantuml/png/P9313S8m34NldiBgdGLwG9LOe58d2Ab1GMbS71Ufit5W95QWKHEWwj7_l__rvVVprKGrejFWmLXbmQerix3tsCrHQQZGHCmI25aruUffeSG5xKWUpjBA_0dVggIH_7mIWD9_E6uoM6D7eSSnQIXqdoWgR8YI85dWLjXIZ9c_yHcAjozk2uEMXz6JKhzlphDgFAsCuu21rLsSDUc0PfcN_lG1003__mC0 "PrintService")
 
-- *ProjectManagementDatabase:*
+  - Interface:
 
-  Cơ sở dữ liệu quản lý các dự án, có thể bao gồm thông tin về nhân viên, nhiệm vụ, và các thông tin liên quan đến tính toán lương.
+      - **Đầu vào**:
+        
+          Từ *PayrollSystem*: Yêu cầu in tài liệu (thông tin phiếu lương hoặc báo cáo).
+      
+      - **Đầu ra**:
+        
+          Đến *Printer*: Gửi dữ liệu cần in.
 
-  ![ProjectManagementDatabase](https://www.planttext.com/api/plantuml/png/N92z2i8m4CVtFCNHtHVe88Ak1K4NnxCDjPAcabw4Zau-XqWHN4HmQWU7FacUm5SmHIEfuztz_X_SgtrEIa95EXSCOoeK17EiL244BAgIU1u0bl1TCSLZGfaARYbLREqKeSIKvrpI30dNMFAF87AZSnsSVqVcmaPZJmCXB9MkO6-QMW9jkeTCWJ89YMdlq9qayrYhz7IhxgeXDir5z_0DH6RQesO-_PTZchCDQWy3VkZlIeOmrRQ9jQztNYqsuJBf7_W6003__mC0 "ProjectManagementDatabase")
+          Đến *PayrollSystem*: Trạng thái in (hoàn thành, thất bại)
 
-  
+  - Dữ liệu trao đổi:
+
+      Nội dung tài liệu cần in, số lượng bản in
+
+- ***ProjectManagementDatabase:***
+
+  Hệ thống *ProjectManagementDatabase* là cơ sở dữ liệu kế thừa (legacy database), lưu trữ thông tin về các dự án, mã chi phí và các thông tin liên quan. Hệ thống này chỉ cung cấp dữ liệu đọc (read-only) cho *PayrollSystem* để hỗ trợ tính toán và quản lý.
+
+  ![ProjectManagementDatabase](https://www.planttext.com/api/plantuml/png/R90n3i8m34NtdCBgpWKw80RMIa1FO5fJ5IKEE0vIpyR0aRW2WHAKIepsV_xVzlF-s0H5qUYimKwzGBN3IRorq4v1oLM00Ruj8zGfyc0fKUBFgMgGSI17h5jKF6AWUQ39PNPTo3_HvB3LkfY16lQHP8BB709z4aoX9xfWM-B-Wu3GDL9GKu8BsmDf5FxdbnUf8Lrs6tk2aKzU7EhesMnInFj5Bm000F__0m00 "ProjectManagementDatabase")
+
+  - Interface:
+
+      - **Đầu vào**:
+        
+          Từ *PayrollSystem*: Truy vấn thông tin dự án hoặc mã chi phí
+        
+      - **Đầu ra**:
+        
+          Trả về dữ liệu được yêu cầu
   
