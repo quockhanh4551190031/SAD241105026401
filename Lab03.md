@@ -81,3 +81,6 @@
 | **IPrintService**                | `interfaces`            | 
 | **IProjectDatabase**             | `interfaces`            | 
 
+## **4. Architectural layers and their dependencies**
+
+![Layers](https://www.planttext.com/api/plantuml/png/b9I_Rjim4CPtFSNL7Je5sOt0o5zaSGAZyTBnJD4I6ufaICgjK6Jkt4VeK7GgiiT3Xpo9dg2lq2CbHKegDyXcMtVVT_UxJ_wp_NteF5fV5Z9va_ArK1pUdvqiZoxFvsV093gNl8DbVVzJPN0kK4CgwkrNbHXarvXnc2miTrnvz48hc6F5xGI-931GcIomibfAED7AXm-XvE20DTzcirWEiByFEQfKSZ1jlUKt9NVUqUFRPufMA7_5xKOm7hHSkNALyxm0O_NdYZJVpaMM-mzSIlsfDp2XB-WxAOm3iYCJesthSPlqorvcUTZKmARU_kZNFIuTCN8EvZeJx8M55rOpgjMxzcKeMIdHSt0eqLPn8DCqFLAGmMW4GGUrrI3ymOLE8NmrD37ShhKj7iseq07zqXdyi_dIbXMm-lwNWTDwUmSoS2Xx1AVe4OvO779y_sDKrrVn7gyvJe4gwA-e6Rn5vP35OSVEhpzovYzYGq4hXv5Mw5wLXIviZLP4ptAqD07JAHy4ugBUVXDmKwA2d4X0HZpk4DZ3TmO-8aj68xwtDnkDmXHAH_hFGhoxcbwlrBNHRL-9PAmoAWpHJsbeRWLlpZr02aAjzMwD_-3j9JjkZTJGziacJ-8vxS9D_V7C5C6W7s7iz7n1RoFImJWfjIM7H2pye_q5003__mC0 "Layers")
