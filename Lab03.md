@@ -3,63 +3,46 @@
 
 **1. Subsystem context diagram**
 
-- ***BankSystem:***
-
-    Hệ thống *BankSystem* chịu trách nhiệm xử lý các giao dịch ngân hàng, bao gồm nhận yêu cầu thanh toán từ *PayrollSystem* và giao tiếp với ngân hàng để thực hiện thanh toán hoặc nhận phản hồi.
-
-    ![BankSystem](https://www.planttext.com/api/plantuml/png/P9313S8m34NlcSBgdGKue8e9aCe29XWKaJWbTWwThGT6OWNIgg4L7FtzzFpbz_XgHJ5f3jwWrPYWEU6GelVG3Q8K6a219JA9h2BVFK5pH7viY7MicYdvheofrjrXmy8UEk8hz3W4OeL4pqoYPaCi_4JcIt0Acf2bt72HP-xFU5w18fG-ij2FiPOfKaND0XpLtPp5sTgMIjC_FW000F__0m00 "BankSystem")
-
-  - Interface:
-
-      - **Đầu vào**:
-        
-          Từ *PayrollSystem*: Yêu cầu thanh toán (bao gồm thông tin nhân viên, số tiền thanh toán, tài khoản đích).
-
-      - **Đầu ra**:
-        
-          Đến *Bank*: Gửi giao dịch thanh toán
-
-          Đến *PayrollSystem*: Phản hồi trạng thái giao dịch (thành công, thất bại)
-
-  - Dữ liệu trao đổi:
-
-      Thông tin nhân viên, tài khoản ngân hàng, số tiền cần thanh toán
-  
 - ***PrintService:***
 
-    Hệ thống *PrintService* xử lý yêu cầu in các tài liệu như phiếu lương, báo cáo. Hệ thống này giao tiếp với máy in để thực hiện in ấn và trả về trạng thái hoàn thành cho *PayrollSystem*.
+    Hệ thống *PrintService* chịu trách nhiệm xử lý các yêu cầu in từ Payroll System. Nó nhận dữ liệu phiếu lương (*Payslip*) từ *PayrollController*, tương tác với máy in để hoàn tất quá trình in, và trả về trạng thái.
 
-  ![PrintService](https://www.planttext.com/api/plantuml/png/P9313S8m34NldiBgdGLwG9LOe58d2Ab1GMbS71Ufit5W95QWKHEWwj7_l__rvVVprKGrejFWmLXbmQerix3tsCrHQQZGHCmI25aruUffeSG5xKWUpjBA_0dVggIH_7mIWD9_E6uoM6D7eSSnQIXqdoWgR8YI85dWLjXIZ9c_yHcAjozk2uEMXz6JKhzlphDgFAsCuu21rLsSDUc0PfcN_lG1003__mC0 "PrintService")
+  ![PrintService](https://www.planttext.com/api/plantuml/png/h5B1JiCm3BtdAwnnO4XKkrTHDGauJE8mRIUEeHWMAKrAx0uguCiuy4dy0ccRL7IzxlRyx6S_E_dz_baJAyzDPSGbt3ZBtXbH6aK4YwrgGsGYQz0lG17CM92o78AYW0y1i5f1xLs9H5klBU_mjK7YvPNu4c78nZBwPrMYq0d1fY_Sep_g44avriIETPU-TMLJeUMbIWXoIF0QdEsR13yvH1Gdxfj7Qecn2hnxRyVr_iqSDfkQe55MTx9WvU9Ulnpu0OrnRsVmTMTPSx8pQgN4dY-Ac8cYJh53erWxImTTavY_H9OL9xVCWT0-qU0K_F0K14UjnCdHFxDiSW4nINUTayLv9bbSXrdTL_e3003__mC0 "PrintService")
 
   - Interface:
 
-      - **Đầu vào**:
-        
-          Từ *PayrollSystem*: Yêu cầu in tài liệu (thông tin phiếu lương hoặc báo cáo).
-      
-      - **Đầu ra**:
-        
-          Đến *Printer*: Gửi dữ liệu cần in.
+    - **`IPrintService`**
+     
+  - **Phương thức:**
+    - `printDocument(aDocument: Document, onPrinter: Printer)`:  
+      Cho phép hệ thống gửi tài liệu cần in (ví dụ: phiếu lương) đến một máy in cụ thể.
 
-          Đến *PayrollSystem*: Trạng thái in (hoàn thành, thất bại)
+## Mô tả giao tiếp
+- *PayrollController* gửi yêu cầu in thông qua interface *IPrintService*.  
+- *IPrintService* được hiện thực bởi hệ thống *PrintService*, nơi xử lý yêu cầu và tương tác trực tiếp với máy in.
 
-  - Dữ liệu trao đổi:
+## Dữ liệu trao đổi
+- **`Document`**: Tài liệu cần in (ví dụ: phiếu lương).  
+- **`Printer`**: Máy in nhận dữ liệu in.
 
-      Nội dung tài liệu cần in, số lượng bản in
+---
 
 - ***ProjectManagementDatabase:***
 
-  Hệ thống *ProjectManagementDatabase* là cơ sở dữ liệu kế thừa (legacy database), lưu trữ thông tin về các dự án, mã chi phí và các thông tin liên quan. Hệ thống này chỉ cung cấp dữ liệu đọc (read-only) cho *PayrollSystem* để hỗ trợ tính toán và quản lý.
+  Hệ thống *ProjectManagementDatabase* là cơ sở dữ liệu kế thừa chứa thông tin về dự án, mã chi phí và dữ liệu liên quan. *PayrollController* sử dụng hệ thống này để truy vấn thông tin dự án phục vụ tính toán bảng lương.
 
-  ![ProjectManagementDatabase](https://www.planttext.com/api/plantuml/png/R90n3i8m34NtdCBgpWKw80RMIa1FO5fJ5IKEE0vIpyR0aRW2WHAKIepsV_xVzlF-s0H5qUYimKwzGBN3IRorq4v1oLM00Ruj8zGfyc0fKUBFgMgGSI17h5jKF6AWUQ39PNPTo3_HvB3LkfY16lQHP8BB709z4aoX9xfWM-B-Wu3GDL9GKu8BsmDf5FxdbnUf8Lrs6tk2aKzU7EhesMnInFj5Bm000F__0m00 "ProjectManagementDatabase")
+  ![ProjectManagementDatabase](https://www.planttext.com/api/plantuml/png/f5AzJiCm4Dxz5ASoq0vHzwgoAW5392fLT6Ay9jVKoB63VG4YuCaOU2HU0Rj98qiPkztvFdr_yj_FxyOpEcvhBMxXpXfsLej2e_Smss4NDZsyQd8pG0-JLrYlYtwH4Zu5m789hosvRkVi2nLyZuppXVWMGI4tJEw81GbrcI1FS0Vq5FX6sC1O4G-Wt1pjl1dc4bQmPwTCjGXJGjEBxTk3xpnJ7KyVtHYhnstHO4KrcL6uZxTDVFYHeOaCmStDewfE_4nQs_Shh3qOLdnnb5o39frFKaRO4sbaPOq_gSQBQVDP9gVrhSxjA_9GHiOtXM9QyLUM9L55aZfofdutPChuFVu1003__mC0 "ProjectManagementDatabase")
 
   - Interface:
 
-      - **Đầu vào**:
-        
-          Từ *PayrollSystem*: Truy vấn thông tin dự án hoặc mã chi phí
-        
-      - **Đầu ra**:
-        
-          Trả về dữ liệu được yêu cầu
-  
+    - **`IProjectDatabase`**
+  - **Phương thức:**
+    - `getProjectInfo(projectId: String): ProjectData`:  
+      Lấy thông tin chi tiết về một dự án dựa trên mã dự án.
+
+## Mô tả giao tiếp
+- *PayrollController* gửi truy vấn thông qua interface *IProjectDatabase*.  
+- *IProjectDatabase* được hiện thực bởi hệ thống *ProjectManagementDatabase*, nơi cung cấp thông tin cần thiết.
+
+## Dữ liệu trao đổi
+- **`ProjectData`**: Dữ liệu dự án, bao gồm thông tin mã dự án, chi phí, và tiến độ.
