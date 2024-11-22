@@ -1,7 +1,7 @@
 # LAB3: INDENTIFY DESIGN ELEMENTS
 ### Xác dịnh các phần tử thiết kế của hệ thống "Payroll System"
 
-**1. Subsystem context diagram**
+## **1. Subsystem context diagram**
 
 - ***PrintService:***
 
@@ -46,3 +46,38 @@
 
 ## Dữ liệu trao đổi
 - **`ProjectData`**: Dữ liệu dự án, bao gồm thông tin mã dự án, chi phí, và tiến độ.
+
+----
+
+## **2. Analysis class to design element map**
+
+# Mapping Analysis Classes to Design Elements
+
+| **Analysis Class**          | **Design Element**               | **Description** |
+|-----------------------------|----------------------------------|-----------------|
+| **PayrollController**        | Controller                       | Coordinates the processing of requests in the system.      |
+| **Employee**                 | Entity                           | Represents employee data and information.                  |
+| **Payslip**                  | Entity                           | Represents employee payslips, storing payment details and salary breakdowns.   |
+| **Printer**                  | Entity                           | Represents the printer for handling print jobs.            |
+| **PrintService**             | Subsystem Proxy                  | Subsystem responsible for handling print requests from the Payroll System. |
+| **BankSystem**               | Subsystem Proxy                  | Subsystem responsible for processing banking transactions. |
+| **ProjectManagementDatabase**| Subsystem Proxy                  | Subsystem providing project and charge code information.   |
+| **IPrintService**            | Interface                        | Interface providing printing functionalities in the system. |
+| **IProjectDatabase**         | Interface                        | Interface providing functionalities to query project information. |
+
+## **3. Design element to owning package map**
+
+# Mapping Design Elements to Owning Packages
+
+| **Design Element**              | **Owning Package**      |                                                                
+|----------------------------------|-------------------------|
+| **PayrollController**            | `controller`            | 
+| **Employee**                     | `entity`                | 
+| **Payslip**                      | `entity`                |
+| **Printer**                      | `entity`                |
+| **PrintService**                 | `subsystem.print`       | 
+| **BankSystem**                   | `subsystem.bank`        |
+| **ProjectManagementDatabase**    | `subsystem.database`    | 
+| **IPrintService**                | `interfaces`            | 
+| **IProjectDatabase**             | `interfaces`            | 
+
