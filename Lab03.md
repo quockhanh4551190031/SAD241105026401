@@ -3,6 +3,90 @@
 
 ## **1. Subsystem context diagram**
 
+- ***BankSystem:***
+
+    Hệ thống con BankSystem là một phần của hệ thống Payroll System. Nó chịu trách nhiệm xử lý các giao dịch tài chính liên quan đến việc trả lương cho nhân viên. Cụ thể, hệ thống này thực hiện các chức năng chính sau:
+
+1. **Nhận chỉ thị thanh toán (Payment Instructions):**
+   - Nhận yêu cầu thanh toán từ **Payroll System**, bao gồm các thông tin như:
+     - Số tiền thanh toán.
+     - Tài khoản ngân hàng của người nhận.
+     - Các chi tiết giao dịch liên quan.
+
+2. **Xử lý thanh toán (Payment Processing):**
+   - Xác thực thông tin giao dịch.
+   - Thực hiện giao dịch qua ngân hàng.
+
+3. **Cung cấp số dư tài khoản (Account Balance):**
+   - Cung cấp thông tin số dư tài khoản cho các hệ thống liên quan để báo cáo và kiểm tra.
+
+4. **Gửi sao kê ngân hàng (Bank Statements):**
+   - Tạo sao kê chi tiết về các giao dịch đã xử lý.
+   - Gửi sao kê đến các hệ thống khác, như dịch vụ in ấn (PrintService).
+
+![BankSystem](https://www.planttext.com/api/plantuml/png/pLEnJiCm4Dqj-H-iCj0CKVSgYaeHGoI6YaoCnhYjXMD7lWiG0V-ExP8qRWipsvtzxkwzy_CAa3li6at9DRkr1ftreT0SWCqslFUfhdj0sSmO1vQSiA8GXugoP1-KCBPOC93cEU8QQP1L1j1r0fKrGCaN9M5CPL2wBHUI4ZM4h5fpyr9BzwfyKXGZPcZTEYiam4_ZEPzqPijXtkGm2qKxYJT2sCxWccjkX9nd7fmU1LmWNIFtccBlCVJWI6l8ir53tJt1OGaRPz_xSMKHVjpNCVMQOAnfGurNTdMlTdjyb5hRjtyfyywWmb7T-NYlIaP8MPw0l9UsoZNy5rHAxW8W8PJS1ruFKiVEi5UjDrPgopmlKpij_tHbwhpFF9-y6YMJ5mnzBwWxmvmk_kGwKKR9obEB_-yR "BankSystem")
+
+- **Interface:**
+  
+    - **`IBankService`** là giao diện trung gian để các hệ thống khác tương tác với **BankSystem**. Giao diện cung cấp các phương thức chính sau:
+
+- **Phương thức:**
+
+    - `processPayment(aInstruction: PaymentInstruction)`: Xử lý các chỉ thị thanh toán
+    - `getAccountBalance(): AccountBalance`: Lấy số dư tài khoản hiện tại
+    - `sendStatement(aStatement: BankStatement)`: Gửi sao kê chi tiết các giao dịch đã thực hiện.
+    
+**Mô tả giao tiếp:**
+
+- *aInstruction*: Đối tượng chứa thông tin chỉ thị thanh toán
+- *processPayment(aInstruction: PaymentInstruction)* Trả về một đối tượng xác nhận thanh toán (`PaymentConfirmation`), bao gồm trạng thái giao dịch (thành công hoặc thất bại).
+- *getAccountBalance(): AccountBalance* Trả về một đối tượng số dư tài khoản (`AccountBalance`) để phục vụ mục đích báo cáo hoặc kiểm tra.
+- *aStatement*: Đối tượng chứa thông tin sao kê ngân hàng.
+- *sendStatement(aStatement: BankStatement)* Được gửi tới các dịch vụ như **PrintService** để in ấn hoặc lưu trữ.
+
+**Dữ liệu trao đổi:**
+
+- **`PaymentInstruction`**: Được gửi từ hệ thống **Payroll System** đến ***BankSystem***.
+
+   Chứa thông tin chi tiết về giao dịch cần thực hiện, bao gồm:
+    - Tên người nhận.
+    - Số tài khoản ngân hàng của người nhận.
+    - Số tiền cần thanh toán.
+    - Ngày giao dịch.
+    - Mã giao dịch (Transaction ID).
+    
+- **`PaymentConfirmation`**: Được tạo bởi ***BankSystem*** và gửi trả về hệ thống **Payroll System**.
+
+  Chứa kết quả của giao dịch, bao gồm:
+    - Trạng thái giao dịch (thành công, thất bại).
+    - Mã giao dịch (Transaction ID).
+    - Thời gian xử lý giao dịch.
+    - Thông báo lỗi (nếu có).
+
+- **`AccountBalance`**: Được lấy từ cơ sở dữ liệu ngân hàng trong ***BankSystem*** và cung cấp cho các hệ thống liên quan (như Financial Management System).
+
+  Chứa thông tin về số dư tài khoản, bao gồm:
+    - Số dư hiện tại.
+    - Số dư khả dụng.
+    - Lịch sử thay đổi số dư (nếu có).
+ 
+- **`BankStatement`**: Được tạo bởi ***BankSystem*** sau khi xử lý giao dịch.
+
+  Chứa thông tin chi tiết về các giao dịch đã thực hiện, bao gồm:
+    - Danh sách các giao dịch (ngày, số tiền, trạng thái).
+    - Tên tài khoản và số tài khoản liên quan.
+    - Tổng kết số dư đầu kỳ và cuối kỳ.
+ 
+- **`ErrorReport`**: Được tạo bởi ***BankSystem*** khi xảy ra sự cố trong quá trình xử lý giao dịch.
+
+  Chứa thông tin về lỗi, bao gồm:
+    - Mã lỗi (Error Code).
+    - Mô tả lỗi (Error Description).
+    - Thời gian xảy ra lỗi.
+    - Các bước xử lý đề xuất (nếu có).
+  
+<hr style="border:2px solid gray">
+
 - ***PrintService:***
 
     Hệ thống *PrintService* chịu trách nhiệm xử lý các yêu cầu in từ Payroll System. Nó nhận dữ liệu phiếu lương (*Payslip*) từ *PayrollController*, tương tác với máy in để hoàn tất quá trình in, và trả về trạng thái.
@@ -17,15 +101,15 @@
     - `printDocument(aDocument: Document, onPrinter: Printer)`:  
       Cho phép hệ thống gửi tài liệu cần in (ví dụ: phiếu lương) đến một máy in cụ thể.
 
-##### Mô tả giao tiếp
+**Mô tả giao tiếp**
 - *PayrollController* gửi yêu cầu in thông qua interface *IPrintService*.  
 - *IPrintService* được hiện thực bởi hệ thống *PrintService*, nơi xử lý yêu cầu và tương tác trực tiếp với máy in.
 
-##### Dữ liệu trao đổi
+**Dữ liệu trao đổi**
 - **`Document`**: Tài liệu cần in (ví dụ: phiếu lương).  
 - **`Printer`**: Máy in nhận dữ liệu in.
 
----
+<hr style="border:2px solid gray">
 
 - ***ProjectManagementDatabase:***
 
@@ -40,11 +124,11 @@
     - `getProjectInfo(projectId: String): ProjectData`:  
       Lấy thông tin chi tiết về một dự án dựa trên mã dự án.
 
-##### Mô tả giao tiếp
+**Mô tả giao tiếp**
 - *PayrollController* gửi truy vấn thông qua interface *IProjectDatabase*.  
 - *IProjectDatabase* được hiện thực bởi hệ thống *ProjectManagementDatabase*, nơi cung cấp thông tin cần thiết.
 
-##### Dữ liệu trao đổi
+**Dữ liệu trao đổi**
 - **`ProjectData`**: Dữ liệu dự án, bao gồm thông tin mã dự án, chi phí, và tiến độ.
 
 ----
