@@ -135,7 +135,7 @@
 
 ## **2. Analysis class to design element map**
 
-# Mapping Analysis Classes to Design Elements
+### Mapping Analysis Classes to Design Elements
 
 | **Analysis Class**          | **Design Element**               | **Description** |
 |-----------------------------|----------------------------------|-----------------|
@@ -151,7 +151,7 @@
 
 ## **3. Design element to owning package map**
 
-# Mapping Design Elements to Owning Packages
+### Mapping Design Elements to Owning Packages
 
 | **Design Element**              | **Owning Package**      |                                                                
 |----------------------------------|-------------------------|
