@@ -17,11 +17,11 @@
     - `printDocument(aDocument: Document, onPrinter: Printer)`:  
       Cho phép hệ thống gửi tài liệu cần in (ví dụ: phiếu lương) đến một máy in cụ thể.
 
-## Mô tả giao tiếp
+##### Mô tả giao tiếp
 - *PayrollController* gửi yêu cầu in thông qua interface *IPrintService*.  
 - *IPrintService* được hiện thực bởi hệ thống *PrintService*, nơi xử lý yêu cầu và tương tác trực tiếp với máy in.
 
-## Dữ liệu trao đổi
+##### Dữ liệu trao đổi
 - **`Document`**: Tài liệu cần in (ví dụ: phiếu lương).  
 - **`Printer`**: Máy in nhận dữ liệu in.
 
@@ -40,11 +40,11 @@
     - `getProjectInfo(projectId: String): ProjectData`:  
       Lấy thông tin chi tiết về một dự án dựa trên mã dự án.
 
-## Mô tả giao tiếp
+##### Mô tả giao tiếp
 - *PayrollController* gửi truy vấn thông qua interface *IProjectDatabase*.  
 - *IProjectDatabase* được hiện thực bởi hệ thống *ProjectManagementDatabase*, nơi cung cấp thông tin cần thiết.
 
-## Dữ liệu trao đổi
+##### Dữ liệu trao đổi
 - **`ProjectData`**: Dữ liệu dự án, bao gồm thông tin mã dự án, chi phí, và tiến độ.
 
 ----
