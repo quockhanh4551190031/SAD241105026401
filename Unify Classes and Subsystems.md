@@ -6,7 +6,7 @@
 
 ### What
 
-Unify classes and subsystems refers to the process of integrating or consolidating classes and subsystems to form a unified and more manageable structure.
+**Unify classes and subsystems** refers to the process of integrating or consolidating classes and subsystems to form a unified and more manageable structure.
 
 Classes represent small units of the system (such as objects or functionalities).
 
@@ -38,26 +38,26 @@ Steps to unify classes and subsystems:
 
 - Analyze and Identify Components:
 
-  List all existing classes and subsystems.
+  - List all existing classes and subsystems.
 
-  Identify relationships and dependencies between them.
+  - Identify relationships and dependencies between them.
 
 - Standardize Architecture:
 
-  Ensure each class and subsystem follows a defined pattern or convention (e.g., MVC, DDD).
+  - Ensure each class and subsystem follows a defined pattern or convention (e.g., MVC, DDD).
 
 - Eliminate Redundancy:
 
-  Find overlapping or duplicate functionalities and consolidate them.
+  - Find overlapping or duplicate functionalities and consolidate them.
 
 - Integrate Classes and Subsystems:
 
-  Use techniques like Dependency Injection, Facade Pattern, or Module Design for smooth integration.
+  - Use techniques like Dependency Injection, Facade Pattern, or Module Design for smooth integration.
 
 - Test and Optimize:
 
-  Verify the unified system for compatibility, functionality, and performance.
+  - Verify the unified system for compatibility, functionality, and performance.
 
 - Maintain and Improve:
   
-  Continuously monitor the system and implement improvements as needed.
+  - Continuously monitor the system and implement improvements as needed.
