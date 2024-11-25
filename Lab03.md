@@ -28,8 +28,8 @@
 
 - **Interface:**
   
-    - **`IBankService`** là giao diện trung gian để các hệ thống khác tương tác với **BankSystem**. Giao diện cung cấp các phương thức chính sau:
-
+    - **`IBankService`** là giao diện trung gian để các hệ thống khác tương tác với **BankSystem**.
+      
 - **Phương thức:**
 
     - `processPayment(aInstruction: PaymentInstruction)`: Xử lý các chỉ thị thanh toán
