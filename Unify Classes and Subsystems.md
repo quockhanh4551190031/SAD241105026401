@@ -14,6 +14,8 @@ Subsystems are larger groups that consist of classes working together to perform
 
 For example, in an e-commerce system, subsystems could include "Product Management," "Payment Processing," and "User Management."
 
+---
+
 ### Why
 
 Unifying classes and subsystems offers several key benefits:
@@ -28,32 +30,34 @@ Scalability: A unified architecture supports future growth without added complex
 
 Collaboration: Standardized components make it easier for teams to understand and work together.
 
+---
+
 ### How
 
 Steps to unify classes and subsystems:
 
-Analyze and Identify Components:
+- Analyze and Identify Components:
 
-List all existing classes and subsystems.
+  List all existing classes and subsystems.
 
-Identify relationships and dependencies between them.
+  Identify relationships and dependencies between them.
 
-Standardize Architecture:
+- Standardize Architecture:
 
-Ensure each class and subsystem follows a defined pattern or convention (e.g., MVC, DDD).
+  Ensure each class and subsystem follows a defined pattern or convention (e.g., MVC, DDD).
 
-Eliminate Redundancy:
+- Eliminate Redundancy:
 
-Find overlapping or duplicate functionalities and consolidate them.
+  Find overlapping or duplicate functionalities and consolidate them.
 
-Integrate Classes and Subsystems:
+- Integrate Classes and Subsystems:
 
-Use techniques like Dependency Injection, Facade Pattern, or Module Design for smooth integration.
+  Use techniques like Dependency Injection, Facade Pattern, or Module Design for smooth integration.
 
-Test and Optimize:
+- Test and Optimize:
 
-Verify the unified system for compatibility, functionality, and performance.
+  Verify the unified system for compatibility, functionality, and performance.
 
-Maintain and Improve:
-
-Continuously monitor the system and implement improvements as needed.
+- Maintain and Improve:
+  
+  Continuously monitor the system and implement improvements as needed.
