@@ -95,7 +95,7 @@
 
   - Interface:
 
-    - **`IPrintService`**
+    - **`IPrintService`**: là giao diện trung gian dùng để các hệ thống tương tác với ***PrintService***.
      
   - **Phương thức:**
     - `printDocument(aDocument: Document, onPrinter: Printer)`:  
@@ -119,7 +119,8 @@
 
   - Interface:
 
-    - **`IProjectDatabase`**
+    - **`IProjectDatabase`**: là giao diện trung gian để tương tác với các hệ thống trong ***ProjectManagementDatabase***
+      
   - **Phương thức:**
     - `getProjectInfo(projectId: String): ProjectData`:  
       Lấy thông tin chi tiết về một dự án dựa trên mã dự án.
