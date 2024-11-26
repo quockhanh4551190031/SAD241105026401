@@ -1,4 +1,4 @@
-# Phân tích và mô phỏng hệ thống **Payroll System**
+# LAB2: Phân tích và mô phỏng hệ thống **Payroll System**
 
 ## **1. Phân tích các ca sử dụng trong hệ thống Payroll System**
 ### **1.1 Các ca sử dụng chính**
